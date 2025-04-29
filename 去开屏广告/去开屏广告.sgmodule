@@ -1,5 +1,5 @@
 #!name=去开屏广告
-#!desc=去除美团外卖/百度网盘/百度贴吧/NGA/美图秀秀/中国联通/jump/闲鱼的开屏广告，可能需要重新安相关App后生效
+#!desc=去除百度网盘/百度贴吧/NGA/美图秀秀/中国联通/jump/闲鱼的开屏广告，可能需要重新安相关App后生效
 #!category=brubru
 [Map Local]
 https://adui.tg.meitu.com/lua/advertv4/sync_load.json data-type=text data="{}"
