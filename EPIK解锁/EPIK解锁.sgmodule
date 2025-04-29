@@ -1,0 +1,18 @@
+#!name=EPIK解锁
+#!desc=解锁EPIK的pro系列功能
+#!category=brubru
+
+[Header Rewrite]
+http-request ^https:\/\/api-epik\.snow\.me\/xht\/api\/sys\/tab\/icon header-replace "proStatus=NON-PRO" "proStatus=PRO"
+http-request ^https:\/\/api-epik\.snow\.me\/xht\/api\/subs\/v1\/page\/show\/status$ header-replace usertype pro
+
+[Body Rewrite]
+http-request ^https:\/\/api-epik\.snow\.me\/xht\/api\/feed\/list\/v2 "proStatus=nonpro" "proStatus=pro"
+http-request ^https:\/\/api-epik\.snow\.me\/das\/data\/report\/api "subs"\s*:\s*0 "subs":1
+http-request ^https:\/\/api-epik\.snow\.me\/xht\/api\/push\/device\/register "subscription=0&subscriptionFlag=0" "subscription=1&subscriptionFlag=1"
+http-response ^https:\/\/purchase-epik-api\.snow\.me\/v1\/purchase\/subscription\/subscriber\/status$ "activated"\s*:\s*false "activated":true
+http-request ^https:\/\/api-epik\.snow\.me\/xht\/api\/sys\/cardBannerNew "proStatus=NON-PRO" "proStatus=PRO"
+http-request ^https:\/\/api-epik\.snow\.me\/xht\/api\/abtest\/h5\/group\/all "proStatus=nonpro" "proStatus=pro"
+
+[MITM]
+hostname = %APPEND% moon.snow.me, purchase-epik-api.snow.me, api-epik.snow.me

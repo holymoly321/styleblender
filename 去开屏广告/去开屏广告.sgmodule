@@ -1,0 +1,16 @@
+#!name=去开屏广告
+#!desc=去除美团外卖/百度网盘/百度贴吧/NGA/美图秀秀/中国联通/jump/闲鱼的开屏广告，可能需要重新安相关App后生效
+#!category=brubru
+[Map Local]
+https://adui.tg.meitu.com/lua/advertv4/sync_load.json data-type=text data="{}"
+https://afdconf.baidu.com/afd/platform data-type=text data="{\"error_code\":0,\"error_message\":\"success\",\"data\":{\"global\":{},\"place_conf\":{},\"sign\":\"\"}}"
+https://afd.baidu.com/afd/entry* data-type=text data="{"errno":0,"errmsg":"","res":{"reqId":"","imTimeSign":0,"ad":[]}}"
+https://g1.tagtic.cn/v3/ad/aggregation data-type=text data="{\"result\":1,\"message\":\"success\",\"data\":[]}"
+https://iyes.youku.com/uts/v1/start/rt data-type=text data="{\"seats\":[]}"
+https://api-v3.mentamob.com/api/v1/config$ data-type=text data="{"cfgVer":"0","trace":"0","current":0,"data":{"ad":{"placement":[]}}}"
+https://switch.jumpvg.com/jump/getlaunchad/v2 data-type=text data="{"success":true,"code":0,"data":{"launchAd":{"showAD":0,"showType":0},"adList":[]},"msg":"success"}"
+https://pan.baidu.com/act/api/activityentry? data-type=text data="{"errno":0,"errmsg":"","popup_list":[]}"
+https://m.client.10010.com/mobileService/customer/accountListData.htm data-type=text data="{"adv":{"startup_adv":{"advCntList":[]}}}"
+
+[MITM]
+hostname = %APPEND% adui.tg.meitu.com, g1.tagtic.cn, iyes.youku.com, switch.jumpvg.com, m.client.10010.com, api-v3.mentamob.com, pan.baidu.com, afdconf.baidu.com, afd.baidu.com
