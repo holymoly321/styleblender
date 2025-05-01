@@ -1,5 +1,9 @@
-// Surge 面板脚本：测试 5 个主流网站连通性（换行展示，简洁美观）
-const policy = $argument || "DIRECT";
+const argMap = Object.fromEntries(($argument || "")
+  .split("&")
+  .map(p => p.split("="))
+  .filter(p => p.length === 2));
+
+const policy = argMap.policy || "DIRECT";
 const targets = [
   { url: "https://www.google.com", emoji: "🧭" },
   { url: "https://www.youtube.com", emoji: "▶️" },
