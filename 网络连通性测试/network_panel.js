@@ -8,21 +8,16 @@ const targets = [
   { url: "https://twitter.com", emoji: "🕊️" }
 ];
 
-// 美化延迟文本对齐（固定宽度）
-function padRight(str, len = 6) {
-  return str + " ".repeat(Math.max(0, len - str.length));
-}
-
 async function testOne({ url, emoji }) {
-  const host = url.replace(/^https?:\/\//, "").split("/")[0];
+  const host = url.replace("https://", "").replace("http://", "").split("/")[0];
   const start = Date.now();
   return new Promise(resolve => {
-    $httpClient.get({ url, policy }, (err) => {
+    $httpClient.get({ url, policy }, (err, resp, body) => {
       const ms = Date.now() - start;
       const ok = !err;
       const symbol = ok ? "✅" : "❌";
       const delay = ok ? `${ms}ms` : "失败";
-      const result = `${symbol} ${host}\n${emoji} ${padRight(delay)}`;
+      const result = `${symbol} ${host}\n${emoji} ${delay}`;
       resolve(result);
     });
   });
