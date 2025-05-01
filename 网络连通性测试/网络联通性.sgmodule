@@ -1,7 +1,7 @@
 #!name=网络连通性测试
 #!desc=测试节点与常见网址间的延迟
 #!category=brubru
-#!arguments=策略名称
+#!arguments=policy:"节点名称"
 
 [Script]
 network-test = type=generic,script-path=https://raw.githubusercontent.com/holymoly321/styleblender/refs/heads/main/网络连通性测试/network_panel.js,argument=""
