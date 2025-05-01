@@ -1,7 +1,14 @@
+// Surge 面板脚本：测试 5 个主流网站连通性（支持策略名中含空格）
+
+// 解析参数，支持带空格的策略名
 const argMap = Object.fromEntries(($argument || "")
   .split("&")
-  .map(p => p.split("="))
-  .filter(p => p.length === 2));
+  .map(p => {
+    const eq = p.indexOf("=");
+    return eq > -1 ? [p.slice(0, eq), decodeURIComponent(p.slice(eq + 1))] : [];
+  })
+  .filter(p => p.length === 2)
+);
 
 const policy = argMap.policy || "DIRECT";
 const targets = [
