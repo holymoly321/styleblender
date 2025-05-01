@@ -1,5 +1,5 @@
 // Surge 面板脚本：测试 5 个主流网站连通性（换行展示，简洁美观）
-const policy = $argument || "DIRECT";
+const policy = $argument ?? ($environment?.params ?? "DIRECT");
 const targets = [
   { url: "https://www.google.com", emoji: "🧭" },
   { url: "https://www.youtube.com", emoji: "▶️" },
