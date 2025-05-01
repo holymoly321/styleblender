@@ -3,7 +3,7 @@
 #!category=brubru
 
 [Script]
-network-test = type=generic,script-path=network_panel.js,argument=Ali TUIC
+network-test = type=generic,script-path=https://raw.githubusercontent.com/holymoly321/styleblender/refs/heads/main/网络连通性测试/network_panel.js,argument=你要测试的策略名称
 
 [Panel]
 网络连通性 = script-name=network-test,update-interval=0
